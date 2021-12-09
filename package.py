@@ -24,7 +24,7 @@ from spack import *
 
 
 class SpackExercise(CMakePackage):
-    """FIXME: Put a proper description of your package here."""
+    """Spack packaging exercise SSE"""
 
     # FIXME: Add a proper url for your package's homepage here.
     homepage = "https://simulation-software-engineering.github.io/homepage/"
