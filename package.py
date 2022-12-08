@@ -30,7 +30,7 @@ class SpackExercise(CMakePackage):
     homepage = "https://simulation-software-engineering.github.io/homepage/"
     url = "https://github.com/Simulation-Software-Engineering/spack-exercise/archive/refs/tags/v0.3.0.tar.gz"
 
-    maintainers = ["hofmajn"]
+    maintainers = ["hofmanjn"]
 
     version("0.1.0", sha256="7e9513c1ff32152a707d3004bc6be91e077002963f9945cd5b16c04fc010d8ba")
     version("0.2.0", sha256="c421df16911fd774aa072d7f6dd1746d0890918f7d0661202771382fbc9cf3db")
