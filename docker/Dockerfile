@@ -41,6 +41,9 @@ RUN sudo chown -R $USER_NAME:$USER_NAME .spack && . ${USER_HOME}/spack/share/spa
 #COPY bootstrap-spack.sh ${USER_HOME}/bootstrap-spack.sh
 #RUN su - $USER_NAME -c ./${USER_HOME}/bootstrap-spack.sh && rm bootstrap-spack.sh
 
+# Clone the git repo to have access to the config.yaml
+RUN git clone https://github.com/bergdola/spack-exercise.git
+
 CMD ["bash"]
 
 # Reset frontend for interactive use
