@@ -14,17 +14,17 @@ int main(int argc, char *argv[])
 {
   std::cout << "Let's fight with CMake, Docker, and some dependencies!" << std::endl << std::endl;
 
+  #ifdef USE_BOOST
   std::cout << "Modify a flat set using boost container" << std::endl;
-  #ifdef USE_BOOST
   modifyAndPrintSets();
-  #endif
   std::cout << std::endl;
+  #endif
 
-  std::cout << "Inspect the current directory using boost filesystem" << std::endl;
   #ifdef USE_BOOST
+  std::cout << "Inspect the current directory using boost filesystem" << std::endl;
   inspectDirectory();
-  #endif
   std::cout << std::endl;
+  #endif
 
   #ifdef USE_YAML_CPP
   if ( argc == 2 )
