@@ -2,16 +2,24 @@ cmake_minimum_required(VERSION "3.12")
 
 project("spackexample" VERSION 0.3.0)
 
-find_package(Boost
-  1.65.1
-  REQUIRED
-  filesystem
-  )
+option(WITH_BOOST "Include optional functionality and boost dependency" ON)
+option(WITH_YAML "Build with included YAML-parsing" ON)
 
-find_package(yaml-cpp
-  0.7.0
-  REQUIRED
-  )
+if (WITH_BOOST)
+  find_package(Boost
+    1.65.1
+    REQUIRED
+    filesystem
+    )
+endif()
+
+if (WITH_YAML)
+  find_package(yaml-cpp
+    0.7.0
+    REQUIRED
+    )
+endif()
+
 
 add_library(spackexamplelib filesystem/filesystem.cpp flatset/flatset.cpp yamlParser/yamlParser.cpp)
 
@@ -22,11 +30,20 @@ set_target_properties(spackexamplelib
     PUBLIC_HEADER yamlParser/yamlParser.hpp
   )
 
-include_directories(${YAML_CPP_INCLUDE_DIR})
+if (WITH_YAML)
+  include_directories(${YAML_CPP_INCLUDE_DIR})
+endif()
 
 add_executable(spackexample main.cpp)
 target_link_libraries(spackexample spackexamplelib)
-target_link_libraries(spackexamplelib Boost::filesystem yaml-cpp)
+if (WITH_YAML)
+  target_link_libraries(spackexamplelib yaml-cpp)
+  target_compile_definitions(spackexamplelib PRIVATE WITH_YAML)
+endif()
+if (WITH_BOOST)
+  target_link_libraries(spackexamplelib Boost::filesystem)
+  target_compile_definitions(spackexamplelib PRIVATE WITH_BOOST)
+endif()
 
 target_include_directories(spackexamplelib
     PRIVATE
