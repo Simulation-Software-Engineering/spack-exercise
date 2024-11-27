@@ -25,21 +25,12 @@ endif()
 
 add_library(spackexamplelib filesystem/filesystem.cpp flatset/flatset.cpp yamlParser/yamlParser.cpp)
 
-if(USE_BOOST)
-    set_target_properties(spackexamplelib
-      PROPERTIES
-        PUBLIC_HEADER filesystem/filesystem.hpp
-        PUBLIC_HEADER flatset/flatset.hpp
-    )
-endif()
-
-if(USE_YAML_CPP)
-    set_target_properties(spackexamplelib
-      PROPERTIES
-        PUBLIC_HEADER yamlParser/yamlParser.hpp
-    )
-    include_directories(${YAML_CPP_INCLUDE_DIR})
-endif()
+set_target_properties(spackexamplelib
+  PROPERTIES
+    PUBLIC_HEADER filesystem/filesystem.hpp
+    PUBLIC_HEADER flatset/flatset.hpp
+    PUBLIC_HEADER yamlParser/yamlParser.hpp
+)
 
 add_executable(spackexample main.cpp)
 
@@ -52,6 +43,7 @@ endif()
 
 if(USE_YAML_CPP)
     target_link_libraries(spackexamplelib yaml-cpp)
+    include_directories(${YAML_CPP_INCLUDE_DIR})
 endif()
 
 target_include_directories(spackexamplelib
