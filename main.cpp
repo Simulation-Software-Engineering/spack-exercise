@@ -15,13 +15,18 @@ int main(int argc, char *argv[])
   std::cout << "Let's fight with CMake, Docker, and some dependencies!" << std::endl << std::endl;
 
   std::cout << "Modify a flat set using boost container" << std::endl;
+  #ifdef USE_BOOST
   modifyAndPrintSets();
+  #endif
   std::cout << std::endl;
 
   std::cout << "Inspect the current directory using boost filesystem" << std::endl;
+  #ifdef USE_BOOST
   inspectDirectory();
+  #endif
   std::cout << std::endl;
 
+  #ifdef USE_YAML_CPP
   if ( argc == 2 )
   {
     const std::string yamlFile( argv[1] );
@@ -29,6 +34,7 @@ int main(int argc, char *argv[])
     std::cout << "  " << yamlFile << std::endl;
     parseConfig( yamlFile );
   }
+  #endif
 
   return 0;
 }
