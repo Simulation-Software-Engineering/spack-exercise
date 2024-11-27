@@ -1,7 +1,14 @@
+#include <iostream>
+
+// Conditionally include Boost and YAML-CPP based on CMake options
+#ifdef USE_BOOST
 #include "flatset/flatset.hpp"
 #include "filesystem/filesystem.hpp"
+#endif
+
+#ifdef USE_YAML_CPP
 #include "yamlParser/yamlParser.hpp"
-#include <iostream>
+#endif
 
 int main(int argc, char *argv[])
 {
