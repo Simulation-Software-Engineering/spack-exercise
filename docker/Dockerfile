@@ -37,6 +37,8 @@ ENV LD_LIBRARY_PATH /usr/local/lib:"${LD_LIBRARY_PATH}"
 COPY spack-config ${USER_HOME}/.spack
 RUN git clone -b v0.23.0 -c feature.manyFiles=true --depth=2 https://github.com/spack/spack.git spack && echo ". ${USER_HOME}/spack/share/spack/setup-env.sh" >> ${USER_HOME}/.bashrc
 RUN sudo chown -R $USER_NAME:$USER_NAME .spack && . ${USER_HOME}/spack/share/spack/setup-env.sh && spack spec yaml-cpp
+RUN echo alias spack="/home/spackbuilder/spack/bin/spack" >> ~/.bashrc
+
 # Bootstrap clingo
 #COPY bootstrap-spack.sh ${USER_HOME}/bootstrap-spack.sh
 #RUN su - $USER_NAME -c ./${USER_HOME}/bootstrap-spack.sh && rm bootstrap-spack.sh
