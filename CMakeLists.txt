@@ -26,7 +26,7 @@ if(ENABLE_YAML)
 endif()
 
 if(SOURCES)
-  add_library(spackexamplelib SOURCES)
+  add_library(spackexamplelib ${SOURCES})
   if(ENABLE_BOOST)
     set_target_properties(spackexamplelib
     PROPERTIES
