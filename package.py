@@ -41,13 +41,5 @@ class SpackExercise(CMakePackage):
 
     depends_on("cxx", type="build")
 
-    # FIXME: Add dependencies if required.
-    depends_on("yaml-cpp", when="@0.3.0")
-    depends_on("boost", when="@0.2.0:0.3.0")
-
-    # def cmake_args(self):
-        # FIXME: Add arguments other than
-        # FIXME: CMAKE_INSTALL_PREFIX and CMAKE_BUILD_TYPE
-        # FIXME: If not needed delete this function
-        # args = []
-        # return args
+    depends_on("yaml-cpp@0.7.0", when="@0.3.0")
+    depends_on("boost@1.65.1:", when="@0.2.0:0.3.0")
