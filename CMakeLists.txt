@@ -25,18 +25,26 @@ endif()
 
 add_library(spackexamplelib filesystem/filesystem.cpp flatset/flatset.cpp yamlParser/yamlParser.cpp)
 
-set_target_properties(spackexamplelib
-  PROPERTIES
-    PUBLIC_HEADER filesystem/filesystem.hpp
-    PUBLIC_HEADER flatset/flatset.hpp
-    PUBLIC_HEADER yamlParser/yamlParser.hpp
-)
+if(USE_BOOST)
+    set_target_properties(spackexamplelib
+      PROPERTIES
+        PUBLIC_HEADER filesystem/filesystem.hpp
+        PUBLIC_HEADER flatset/flatset.hpp
+    )
+endif()
 
-include_directories(${YAML_CPP_INCLUDE_DIR})
-    
+if(USE_YAML_CPP)
+    set_target_properties(spackexamplelib
+      PROPERTIES
+        PUBLIC_HEADER yamlParser/yamlParser.hpp
+    )
+    include_directories(${YAML_CPP_INCLUDE_DIR})
+endif()
+
 add_executable(spackexample main.cpp)
 
 target_link_libraries(spackexample spackexamplelib)
+
 # Example of linking Boost and yaml-cpp if enabled
 if(USE_BOOST)
     target_link_libraries(spackexamplelib Boost::filesystem)
@@ -52,7 +60,7 @@ target_include_directories(spackexamplelib
     PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/spackexamplelib>
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/spackexamplelib>
- )
+)
 
 # Create install targets
 include(GNUInstallDirs)
