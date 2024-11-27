@@ -18,9 +18,7 @@ int main(int argc, char *argv[])
   std::cout << "Modify a flat set using boost container" << std::endl;
   modifyAndPrintSets();
   std::cout << std::endl;
-  #endif
 
-  #ifdef USE_BOOST
   std::cout << "Inspect the current directory using boost filesystem" << std::endl;
   inspectDirectory();
   std::cout << std::endl;
