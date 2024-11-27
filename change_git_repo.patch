@@ -1,0 +1,8 @@
+14c14
+<     git = "https://github.com/Simulation-Software-Engineering/spack-exercise.git"
+---
+>     git = "https://github.com/menkalian/spack-exercise.git"
+20c20
+<     version("main", branch="main")
+---
+>     version("main", branch="exercise-spack-krampfkn")

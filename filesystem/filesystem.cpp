@@ -2,6 +2,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+
+#if WITH_BOOST
 #include <boost/filesystem.hpp>
 using namespace boost::filesystem;
 
@@ -44,3 +46,11 @@ void inspectDirectory()
   }
 
 }
+
+#else
+
+void inspectDirectory() {
+  std::cout << "Filesystem operations are not available without Boost. Build package with '+boost' to enable functionality" << std::endl;
+}
+
+#endif

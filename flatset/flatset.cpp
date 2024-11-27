@@ -1,5 +1,7 @@
 #include "flatset.hpp"
 #include <iostream>
+
+#ifdef WITH_BOOST
 #include <boost/container/flat_set.hpp>
 
 void modifyAndPrintSets() {
@@ -20,3 +22,10 @@ void modifyAndPrintSets() {
   std::cout<<std::endl;  
 }
 
+#else
+
+void modifyAndPrintSets() {
+  std::cout << "Flattening a set is not available without Boost. Build package with '+boost' to enable functionality" << std::endl;
+}
+
+#endif
