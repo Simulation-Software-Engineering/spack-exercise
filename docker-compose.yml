@@ -1,0 +1,11 @@
+services:
+  spack-example:
+    image: spack-example
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+    container_name: spack-example
+    stdin_open: true
+    tty: true
+    volumes:
+      - './yamlParser:/home/spackbuilder/yamlParser'
