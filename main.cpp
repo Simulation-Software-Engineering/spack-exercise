@@ -1,12 +1,18 @@
-#include "flatset/flatset.hpp"
-#include "filesystem/filesystem.hpp"
-#include "yamlParser/yamlParser.hpp"
+#ifdef BOOST
+  #include "flatset/flatset.hpp"
+  #include "filesystem/filesystem.hpp"
+#endif
+#ifdef YAML
+  #include "yamlParser/yamlParser.hpp"
+#endif
 #include <iostream>
 
 int main(int argc, char *argv[])
 {
   std::cout << "Let's fight with CMake, Docker, and some dependencies!" << std::endl << std::endl;
 
+
+#ifdef BOOST
   std::cout << "Modify a flat set using boost container" << std::endl;
   modifyAndPrintSets();
   std::cout << std::endl;
@@ -14,7 +20,9 @@ int main(int argc, char *argv[])
   std::cout << "Inspect the current directory using boost filesystem" << std::endl;
   inspectDirectory();
   std::cout << std::endl;
+#endif
 
+#ifdef YAML
   if ( argc == 2 )
   {
     const std::string yamlFile( argv[1] );
@@ -22,6 +30,7 @@ int main(int argc, char *argv[])
     std::cout << "  " << yamlFile << std::endl;
     parseConfig( yamlFile );
   }
+#endif
 
   return 0;
 }
