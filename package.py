@@ -28,6 +28,7 @@ class SpackExercise(CMakePackage):
     # FIXME: Add a proper url for your package's homepage here.
     homepage = "https://simulation-software-engineering.github.io/homepage/"
     url = "https://github.com/Simulation-Software-Engineering/spack-exercise/archive/refs/tags/v0.3.0.tar.gz"
+    git = "https://github.com/Simulation-Software-Engineering/spack-exercise.git"
 
     # FIXME: Add a list of GitHub accounts to
     # notify when the package is updated.
@@ -39,6 +40,7 @@ class SpackExercise(CMakePackage):
     license("MIT", checked_by="mgemaakbar")
 
     # FIXME: Add proper versions here.
+    version("main", git = git, branch="main")
     version("0.1.0", sha256='cac78e641cb703e3fe51956f91fe8347ac52f74ef037d8eadae5777c65a19a00')
     version("0.2.0", sha256='3dd6b4cc0f7aff179d8e290bc3879056237ae372738a4bd7222f6450fbcdfc77')
     version("0.3.0", sha256='e54a4c037941d85a22fb3e6e73195df8448cf69a96aa44ef374ac518344812f0')
