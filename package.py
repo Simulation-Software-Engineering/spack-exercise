@@ -39,10 +39,6 @@ class SpackExercise(CMakePackage):
     # the license, set checked_by to your Github username.
     license("MIT-LICENSE", checked_by="luosg")
 
-
-    #version('0.3.0', sha256='5e95bf1904ebfbd5c28b064bff098a3bb654bf7c407f2031295e3588d6d9e8fa')
-    #version('0.2.0', sha256='a77499bbfd0b8f4d7070b06c491e062fa608fdd7e939d6c37796bdafdbbaa35a')
-    #version('0.1.0', sha256='2e99e2ff2b955b9d17645367a0a7eeb485162d9336cdbf0034b9d95d464f3157')
     version("0.3.0", sha256="e54a4c037941d85a22fb3e6e73195df8448cf69a96aa44ef374ac518344812f0")
     version("0.2.0", sha256="3dd6b4cc0f7aff179d8e290bc3879056237ae372738a4bd7222f6450fbcdfc77")
     version("0.1.0", sha256="cac78e641cb703e3fe51956f91fe8347ac52f74ef037d8eadae5777c65a19a00")
