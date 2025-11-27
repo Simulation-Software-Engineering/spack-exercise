@@ -7,8 +7,6 @@ from spack.package import *
 
 
 class SpackExercise(CMakePackage):
-    """C++ example from the SSE Spack exercise building spackexample"""
-
     homepage = "https://simulation-software-engineering.github.io/homepage/"
     url = "https://github.com/Simulation-Software-Engineering/spack-exercise/archive/refs/tags/v0.1.0.tar.gz"
 
