@@ -9,6 +9,9 @@
     "remoteEnv": {
         "SPACK_EDITOR": "code --wait"
     },
+    "postCreateCommand": {
+        "spackPackage": "mkdir --parents ~/.spack/package_repos/fncqgg4/repos/spack_repo/builtin/packages/spack_exercise && ln --symbolic --target-directory ~/.spack/package_repos/fncqgg4/repos/spack_repo/builtin/packages/spack_exercise $(realpath package.py)"
+    },
     "customizations": {
         "vscode": {
             "extensions": [
