@@ -1,0 +1,27 @@
+{
+    "name": "DevContainer",
+    "build": {
+        "dockerfile": "../docker/Dockerfile",
+        "context": "../docker"
+    },
+    "privileged": false,
+    "runArgs": ["--tmpfs", "/tmp:exec"],
+    "remoteEnv": {
+        "SPACK_EDITOR": "code --wait"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "esbenp.prettier-vscode",
+                "foxundermoon.shell-format",
+                "mads-hartmann.bash-ide-vscode",
+                "mhutchie.git-graph",
+                "ms-vscode.cpptools",
+                "redhat.vscode-yaml",
+                "streetsidesoftware.code-spell-checker",
+                "streetsidesoftware.code-spell-checker-german",
+                "timonwong.shellcheck"
+            ]
+        }
+    }
+}
