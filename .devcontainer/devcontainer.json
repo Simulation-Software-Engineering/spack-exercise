@@ -1,0 +1,30 @@
+{
+    "name": "DevContainer",
+    "build": {
+        "dockerfile": "../docker/Dockerfile",
+        "context": "../docker"
+    },
+    "privileged": false,
+    "runArgs": ["--tmpfs", "/tmp:exec"],
+    "remoteEnv": {
+        "SPACK_EDITOR": "code --wait"
+    },
+    "postCreateCommand": {
+        "spackPackage": "mkdir --parents ~/.spack/package_repos/fncqgg4/repos/spack_repo/builtin/packages/spack_exercise && ln --symbolic --target-directory ~/.spack/package_repos/fncqgg4/repos/spack_repo/builtin/packages/spack_exercise $(realpath package.py)"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "esbenp.prettier-vscode",
+                "foxundermoon.shell-format",
+                "mads-hartmann.bash-ide-vscode",
+                "mhutchie.git-graph",
+                "ms-vscode.cpptools",
+                "redhat.vscode-yaml",
+                "streetsidesoftware.code-spell-checker",
+                "streetsidesoftware.code-spell-checker-german",
+                "timonwong.shellcheck"
+            ]
+        }
+    }
+}
