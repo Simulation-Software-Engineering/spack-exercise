@@ -12,7 +12,6 @@ RUN rm -rf /tmp/*
 # Create user
 ARG USER_NAME=spackbuilder
 ARG USER_HOME=/home/${USER_NAME}
-#ARG USER_ID=1000
 ARG USER_ID=1000
 ARG GROUP_ID=1000
 
